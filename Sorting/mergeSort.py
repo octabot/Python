@@ -1,31 +1,38 @@
-arr = [23,45,78,99,24,34,45]
-n = len(arr)
-a = [0] * (n/2)
-b = [0] * (n-(n/2))
-for i in range(len):
-    pass
-
-
-
-def merge(arr,a,b):
-    c = [0] * (len(a) + len(b))
-    i,j,k =0,0,0
-
-    while i<len(a) and j<len(b):
-        if  a[i] < b[j]:
-            c[k] = a[i]
+def merge(left, right):
+    result = []
+    i,j = 0,0
+    n,m = len(left), len(right)
+    while i<n and j<m:
+        if left[i] < right[j]:
+            result.append(left[i])
             i += 1
         else:
-            c[k] = b[j]
+            result.append(right[j])
             j += 1
-        k += 1
 
-    while i<len(a):
-        c[k] = a[i]
-        i += 1
-        k += 1
-        
-    while j<len(b):
-        c[k] = b[j]
-        j += 1
-        k += 1
+    if i<n:
+        while i<n:
+            result.append(left[i])
+            i += 1
+    if j<m:
+        while j<m:
+            result.append(right[j])
+            j += 1
+    return result
+
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr)//2
+    left = arr[:mid]         #slicing
+    right = arr[mid:]
+    left_sarr = merge_sort(left)        #ek jo element ayega vo sorted hi hoga
+    right_sarr = merge_sort(right)
+
+    return merge(left_sarr, right_sarr)
+
+arr = [7,4,9,11,23,45,67]
+ans = merge_sort(arr)
+
+print(ans)
