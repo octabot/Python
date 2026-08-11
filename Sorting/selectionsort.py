@@ -9,6 +9,6 @@ for i in range(n-1):
         if arr[j] < arr[min_idx]:
             min_idx = j
 
-            arr[min_idx], arr[i] =  arr[i], arr[min_idx]
+    arr[min_idx], arr[i] =  arr[i], arr[min_idx]
         
 print(arr)
