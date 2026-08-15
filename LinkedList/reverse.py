@@ -1,3 +1,14 @@
+'''
+In many languages, a variable created inside a loop is "born 
+and dies" inside that loop (block scope). If you tried to use 
+
+it outside the loop, the program would crash.
+Python is different. It has function scope, not block scope. 
+A variable created inside a while loop or an if statement is 
+perfectly accessible anywhere else inside that same function, 
+even after the loop finishes.
+'''
+
 class Node:
     def __init__(self,data):
         self.data = data
@@ -28,7 +39,7 @@ traverse(head)
 print(head.data)
 
 cur = head
-prev 
+prev = None
 # nxt = None
 while cur != None:
     nxt = cur.next

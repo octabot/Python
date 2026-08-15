@@ -9,7 +9,6 @@ def traverse(head):
     while cur!=None:
         print(cur.data, end= " ")
         cur = cur.next
-
     print()
 
 a = Node(11)
